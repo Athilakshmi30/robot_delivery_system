@@ -143,7 +143,7 @@ This system simulates a robot delivering food in a cafe environment. There are 3
 **Expected Behavior:**
 - The robot will not deliver food to the cancelled order's table. After delivering the food for the other orders, it will return the food for the cancelled order to the Kitchen and go back home.
 
-### 4. Place Multiple Orders and Don't Accept the Pop-up in Any One of the Orders
+### 4. Place Multiple Orders and Don't Accept the Pop-up in Any One of the Order's Table
 
 **Expected Behavior:**
 - If the customer doesn't provide confirmation at the table within the time limit, the robot will consider that order as cancelled and return the food to the Kitchen after completing the other orders.
@@ -152,3 +152,6 @@ This system simulates a robot delivering food in a cafe environment. There are 3
 
 **Expected Behavior:**
 - After completing the current order, the robot will return to the Kitchen to collect food for the next order and continue the process accordingly.
+
+
+**Note:** If the order is cancelled while the robot is en route to deliver it (between the kitchen and the table), the robot will not consider the order as cancelled, as it is already on its way. In such cases, the customer can cancel the order by simply not accepting the pop-up confirmation. The robot will then return the food to the kitchen.
