@@ -1,0 +1,7 @@
+<launch>
+
+<node pkg="robot_delivery_system" type="order_manager_node" name="order_manager_node" output="screen" />
+<node pkg="robot_delivery_system" type="popup_node.py" name="popup_node" output="screen" />
+
+
+</launch>

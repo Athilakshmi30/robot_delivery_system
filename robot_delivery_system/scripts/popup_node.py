@@ -31,8 +31,8 @@ def show_popup():
         global rosservice_response
         rosservice_response = True
         print("rosservice set to True")
-        popup.quit()  # Close the pop-up window
-        root.quit()   # Close the root window
+        popup.destroy()  # Close the pop-up window
+        root.quit()      # Close the root window
 
     # OK button
     ok_button = tk.Button(popup, text="OK", command=on_ok_click)
@@ -44,11 +44,11 @@ def show_popup():
         if not rosservice_response:  # If no response yet, set to False after timeout
             rosservice_response = False
             print("rosservice set to False after 30 seconds timeout")
-            popup.quit()  # Close the pop-up after timeout
-            root.quit()   # Close the root window after timeout
+            popup.destroy()  # Close the pop-up after timeout
+            root.quit()      # Close the root window after timeout
 
     # Set timeout to 30 seconds
-    root.after(10000, timeout)  # Timeout function after 30 seconds
+    root.after(20000, timeout)  # Timeout function after 30 seconds
 
     # Start Tkinter event loop (this will block until user interaction)
     popup.mainloop()

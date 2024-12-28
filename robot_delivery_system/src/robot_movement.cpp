@@ -28,7 +28,7 @@ bool RobotMovement::move_to_goal(const std::string& goal_name) {
         ROS_INFO("Robot reached goal position");
         return true;
     } else {
-        ROS_INFO("Failed to reach goal");
+        ROS_WARN("Failed to reach goal");
         return false;
     }
 }

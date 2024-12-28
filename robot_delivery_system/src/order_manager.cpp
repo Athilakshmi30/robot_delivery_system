@@ -14,11 +14,11 @@ OrderManager::OrderManager() : robot_() {
 void OrderManager::order_list_cb(const robot_delivery_system::OrderListConstPtr &msg) {
     if (msg->list != 0) {
         order_list_.push_back(msg->list);
-        ROS_INFO("Added %d to order_list_", msg->list);
+
     }
     if (msg->cancelled_list != 0) {
         cancelled_list_.push_back(msg->cancelled_list);
-        ROS_ERROR("Added %d to cancelled_list_", msg->cancelled_list);
+
     }
     order_received_ = !order_list_.empty();
 }
@@ -29,7 +29,6 @@ void OrderManager::order_list_cb(const robot_delivery_system::OrderListConstPtr 
 void OrderManager::check_robot_status() {
     if (in_home_) {
         in_home_ = false;
-        ROS_INFO("Setting in_home to false");
         move_home_to_kitchen_ = true;
         move_to_kitchen();
     }
@@ -40,7 +39,7 @@ bool OrderManager::get_confirmation() {
     std::string robot_state;
     ros::param::get("ROBOT_STATE", robot_state);
     if (robot_state == "WAITING_FOR_FOOD" && order_list_.empty() && current_order_list_.empty()) {
-        ROS_ERROR("GET_CONFIRMATION returning FALSE");
+
         return false;
     } else {
         robot_delivery_system::PopupService srv;
@@ -48,7 +47,7 @@ bool OrderManager::get_confirmation() {
             ROS_INFO("Popup confirmation succeeded.");
             return srv.response.result;
         } else {
-            ROS_ERROR("Popup confirmation failed.");
+            ROS_WARN("Popup confirmation failed.");
             return false;
         }
     }
@@ -73,7 +72,7 @@ void OrderManager::process_orders() {
         if (robot_.move_to_goal(std::to_string(current_order)) && get_confirmation()) {
             ROS_INFO("Order %d processed successfully.", current_order);
         } else {
-            ROS_ERROR("Order %d failed. Returning to kitchen.", current_order);
+            ROS_WARN("Order %d failed. Returning to kitchen.", current_order);
             return_to_kit_for_food_return_ = true;
             continue;
         }
