@@ -83,7 +83,7 @@ This node is responsible for getting user input like table number and action (or
 
 ### Scenario Overview
 
-This system simulates a robot delivering food in a café environment. There are 3 tables in the café, and the robot can perform two possible actions: **order** or **cancel**.
+This system simulates a robot delivering food in a cafe environment. There are 3 tables in the cafe, and the robot can perform two possible actions: **order** or **cancel**.
 
 **Tables:**
 
@@ -102,7 +102,7 @@ This system simulates a robot delivering food in a café environment. There are 
    - In the terminal, navigate to the `test_node` and give the input `1` to specify the table number (Table 1).
    - Press **Enter** to continue.
    - The system will prompt you to choose an action.
-   - Select **order** to place an order for Table 1.
+   - Type **order** to place an order for Table 1.
 
 2. **Robot Movement and Food Collection:**
    - The robot will automatically navigate to the Kitchen to collect the food.
