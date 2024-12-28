@@ -14,6 +14,7 @@ This repo contains three main packages:
 - [Dependencies](#dependencies)
 - [Installation](#installation)
 - [Running the System](#running-the-system)
+- [How to Test the System](#how-to-test-the-system)
 
 ---
 
@@ -63,20 +64,19 @@ The following dependencies are required for the workspace to function correctly:
 - To start the navigation
 
    ```bash
-roslaunch turtlebot3_navigation turtlebot3_navigation.launch
-```
+   roslaunch turtlebot3_navigation turtlebot3_navigation.launch
+   ```
 - To start the order manager node for robot
 
-    ```bash
-    roslaunch robot_delivery_system order_manager.launch
-    ```
+   ```bash
+   roslaunch robot_delivery_system order_manager.launch
+   ```
 - To test the robot order delivery system
 
-    ```bash
-     rosrun robot_delivery_system test_node
-```
-This node is resposible for getting user input like table number,action(order or cancel).
-
+   ```bash
+   rosrun robot_delivery_system test_node
+   ```
+This node is responsible for getting user input like table number and action (order or cancel).
 ## How to Test the System  
 
 ## Ideal Case
